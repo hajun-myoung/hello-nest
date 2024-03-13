@@ -6,10 +6,16 @@ import {
   Param,
   Patch,
   Post,
+  Query,
 } from '@nestjs/common';
 
 @Controller('movies')
 export class MoviesController {
+  @Get('/search')
+  searchMovie(@Query('year') year: string) {
+    return 'Searching moive... year: ' + year;
+  }
+
   @Get()
   getAllMovies(): string {
     return 'This will return all of movies';
