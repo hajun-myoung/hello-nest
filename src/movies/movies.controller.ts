@@ -10,6 +10,7 @@ import {
 import { MoviesService } from './movies.service';
 import { Movie } from './entities/movies.entities';
 import { CreateMovieDto } from './dto/create-movie.dto';
+import { UpdateMovieDto } from './dto/update-movie.dto';
 
 @Controller('movies')
 export class MoviesController {
@@ -39,7 +40,7 @@ export class MoviesController {
   }
 
   @Patch('/:id')
-  patchMovie(@Param('id') id: number, @Body() updateData) {
+  patchMovie(@Param('id') id: number, @Body() updateData: UpdateMovieDto) {
     return this.moviesService.updateOne(id, updateData);
   }
 }
